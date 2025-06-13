@@ -27,39 +27,20 @@ public class Task {
         taskStatus = newStatus;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, description, taskId);
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if(obj == null) return false;
-        if(this.getClass() != obj.getClass()) return false;
-        Task newObject = (Task) obj;
-        return Objects.equals(this.name, newObject.name) && Objects.equals(this.description, newObject.description)
-                && Objects.equals(this.taskId, newObject.taskId);
-    }
-
-    @Override
-    public String toString(){
-        String info =  this.getClass().toString()+ "{" +
-                "mame = " + this.name +
-                ", description = " + this.description +
-                ", taskStatus = " + this.taskStatus +
-                ", taskId = " + this.taskId;
-        if(this.getClass().equals(Subtask.class)){
-            info += ",epicid = " + ((Subtask) this).epicId + "}";
-        } else info += "}";
-        return info;
-    }
-
     public String getName() {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getDescription() {
         return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getTaskId() {
@@ -68,5 +49,27 @@ public class Task {
 
     public void setTaskId(int taskId) {
         this.taskId = taskId;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(taskId);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(obj == null) return false;
+        if(this.getClass() != obj.getClass()) return false;
+        Task newObject = (Task) obj;
+        return Objects.equals(this.taskId, newObject.taskId);
+    }
+
+    @Override
+    public String toString(){
+        return getClass().toString() + "{" +
+                "mame = " + name +
+                ", description = " + description +
+                ", taskStatus = " + taskStatus +
+                ", taskId = " + taskId;
     }
 }
