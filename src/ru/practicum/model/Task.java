@@ -66,10 +66,10 @@ public class Task {
 
     @Override
     public String toString(){
-        return getClass().toString() + "{" +
-                "mame = " + name +
+        return getClass()+ "{" +
+                "name = " + name +
                 ", description = " + description +
                 ", taskStatus = " + taskStatus +
-                ", taskId = " + taskId;
+                ", taskId = " + taskId + "}";
     }
 }
